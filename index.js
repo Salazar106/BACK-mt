@@ -6,6 +6,8 @@ require("dotenv").config()
 
 const bookRoute = require('./routes/book.route')
 const userRoute = require('./routes/user.route')
+const usersRoute=require('./routes/users')//mia
+const envRoute=require('./routes/env')//mia
 
 mongoose
     .connect(process.env.MONGO_DB_URI)
@@ -25,6 +27,8 @@ app.use(bodyParser.urlencoded({
 app.use(cors())
 app.use('/books', bookRoute)
 app.use('/users', userRoute)
+app.use('userS', usersRoute) //mia
+app.use('env', envRoute) //mia
 
 // PORT
 const port = process.env.PORT || 5000
